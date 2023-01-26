@@ -30,7 +30,7 @@ int cooldown(int wkonca);
 
 bool lessthan(individual t1, individual t2);
 
-outputv TSPUtil(ww distances, int POP_SIZE, int gen_thres);
+outputv TSP(ww distances, int POP_SIZE, int gen_thres);
 
 ww dystans(graph mapa);
 
