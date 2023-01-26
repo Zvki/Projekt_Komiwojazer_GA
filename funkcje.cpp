@@ -6,13 +6,13 @@
 #include <string>
 #include <random>
 #include "funkcje.h"
-
+//struktura najlepszej trasy w generacji
 struct MVP {
     int gen;
     std::string trasa;
     double fitness;
 };
-
+//struktura pojedynczej trasy
 struct individual {
     std::string gnome;
     double fitness;
@@ -48,7 +48,7 @@ std::string mutatedGene(std::string gnome, ww distances)
     }
     return gnome;
 }
-
+//tworzenie trasy poprzez losowe wybieranie kolejnych miast
 std::string create_gnome(ww distances)
 {
     std::string gnome = "0";
@@ -63,7 +63,7 @@ std::string create_gnome(ww distances)
     }
     return gnome;
 }
-
+//funkcja liczaca dlugosc trasy
 double cal_fitness(std::string gnome, ww distances)
 {
     double f = 0;
@@ -72,7 +72,6 @@ double cal_fitness(std::string gnome, ww distances)
     }
     return f;
 }
-
 int cooldown(int wkonca)
 {
     return (95 * wkonca) / 100;
@@ -82,8 +81,7 @@ bool lessthan(individual t1, individual t2)
 {
     return t1.fitness < t2.fitness;
 }
-
-outputv TSPUtil(ww distances, int POP_SIZE, int gen_thres)
+outputv TSP(ww distances, int POP_SIZE, int gen_thres)
 {
     // Numer generacji
     int gen = 1;
@@ -123,11 +121,8 @@ outputv TSPUtil(ww distances, int POP_SIZE, int gen_thres)
                     break;
                 }
                 else {
-
-                    // Accepting the rejected children at
-                    // a possible probability above threshold.
                     float prob = pow(2.7,
-                        -1 * ((float)(new_gnome.fitness
+                        -1 * ((new_gnome.fitness
                             - population[i].fitness)
                             / w_konca));
                     if (prob > 0.3) {
@@ -145,21 +140,21 @@ outputv TSPUtil(ww distances, int POP_SIZE, int gen_thres)
     }
     return dane;
 }
-
+//funkcja obliczajÄ…ca odleglosc pomiedzy miastami
 ww dystans(graph mapa) {
     if (mapa.size() == 0) return {};
-    double odleglosc = 0;   // deklaracja zmiennej odleg³osci
-    ww odleglosci(mapa.size()); // deklaracja vektoru odleg³osci
-    // pêtla wpisuj¹ca dane do vectora "odleglosci"
+    double odleglosc = 0;   // deklaracja zmiennej odlegÂ³osci
+    ww odleglosci(mapa.size()); // deklaracja vektoru odlegÂ³osci
+    // pÃªtla wpisujÂ¹ca dane do vectora "odleglosci"
     for (auto& l : mapa) {
         for (auto& l2 : mapa) {
-            odleglosc = sqrt(abs(pow((l2.second.first - l.second.first), 2) + pow((l2.second.second - l.second.second), 2))); // obliczanie odleg³osci
-            odleglosci[l.first].push_back(odleglosc); // wpisanie odleg³osci do vectora "odleglosci"
+            odleglosc = sqrt(abs(pow((l2.second.first - l.second.first), 2) + pow((l2.second.second - l.second.second), 2))); // obliczanie odlegÂ³osci
+            odleglosci[l.first].push_back(odleglosc); // wpisanie odlegÂ³osci do vectora "odleglosci"
         }
     }
-    return odleglosci; // zwracanie vectora "odleg³osci"
+    return odleglosci; // zwracanie vectora "odlegÂ³osci"
 }
-
+// funkcja wypisujÄ…ca dane do pliku
 void wypisz(outputv dane, std::string wynik) {
     std::ofstream wyjscie(wynik);
     for (auto& i : dane) {
