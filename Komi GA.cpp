@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
             }
             distances = dystans(punkty); // obliczanie odległości między miastami
             outputv dane;
-            dane = TSPUtil(distances, POP_SIZE, gen_thres);
+            dane = TSP(distances, POP_SIZE, gen_thres);
             wypisz(dane, wynik);
         }
         else {
