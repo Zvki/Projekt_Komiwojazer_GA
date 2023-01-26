@@ -1,0 +1,50 @@
+Generacja 1, Dystans: 243.947
+041320
+Generacja 2, Dystans: 192.476
+041230
+Generacja 3, Dystans: 201.831
+034120
+Generacja 4, Dystans: 192.476
+032140
+Generacja 5, Dystans: 221.102
+032410
+Generacja 6, Dystans: 192.476
+032140
+Generacja 7, Dystans: 192.476
+032140
+Generacja 8, Dystans: 201.831
+021430
+Generacja 9, Dystans: 192.476
+041230
+Generacja 10, Dystans: 227.708
+012430
+Generacja 11, Dystans: 201.831
+034120
+Generacja 12, Dystans: 226.332
+024130
+Generacja 13, Dystans: 223.583
+042130
+Generacja 14, Dystans: 192.476
+041230
+Generacja 15, Dystans: 221.102
+014230
+Generacja 16, Dystans: 192.476
+032140
+Generacja 17, Dystans: 221.102
+032410
+Generacja 18, Dystans: 227.708
+034210
+Generacja 19, Dystans: 192.476
+032140
+Generacja 20, Dystans: 192.476
+032140
+Generacja 21, Dystans: 223.583
+031240
+Generacja 22, Dystans: 192.476
+032140
+Generacja 23, Dystans: 201.831
+034120
+Generacja 24, Dystans: 223.583
+031240
+Generacja 25, Dystans: 201.831
+034120
