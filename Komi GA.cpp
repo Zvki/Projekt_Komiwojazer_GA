@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <map>
 #include <fstream>
@@ -54,8 +54,16 @@ int main(int argc, char* argv[])
             wypisz(dane, wynik);
         }
         else {
-            std::cout << "Blad otwarcia pliku";
+            std::cout << "Prosze podac do wiersza polecen poprawne dane dotyczace nazwy pliku. " << std::endl;
             return 1;
         }
     }
+    else {
+        std::cout << "Prosze podac do wiersza polecen nastepnujace dane:" << std::endl;
+        std::cout << " - i plik wejściowy z punktami" << std::endl;
+        std::cout << " - g liczba pokolen " << std::endl;
+        std::cout << " - n liczba osobnikow w pokoleniu" << std::endl;
+        return 1;
+    }
+
 }
