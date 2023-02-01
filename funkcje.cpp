@@ -76,11 +76,12 @@ int cooldown(int wkonca)
 {
     return (95 * wkonca) / 100;
 }
-
+// funkcja pomocnicza do sortowania
 bool lessthan(individual t1, individual t2)
 {
     return t1.fitness < t2.fitness;
 }
+//Funkcja głowna komiwojazera
 outputv TSP(ww distances, int POP_SIZE, int gen_thres)
 {
     // Numer generacji
@@ -97,8 +98,7 @@ outputv TSP(ww distances, int POP_SIZE, int gen_thres)
         population.push_back(temp);
     }
 
-    bool found = false;
-    int w_konca = 100000;
+    int w_konca = 10000;
 
     // Mutacja i krzyzowanie
     while (w_konca > 1000 && gen <= gen_thres) {
@@ -107,7 +107,7 @@ outputv TSP(ww distances, int POP_SIZE, int gen_thres)
         najlepszy.gen = gen;
         najlepszy.trasa = population[0].gnome;
         najlepszy.fitness = population[0].fitness;
-        std::vector<individual> new_population;
+        std::vector<individual> new_population; 
         for (int i = 0; i < POP_SIZE; i++) {
             individual p1 = population[i];
             while (true) {
@@ -120,7 +120,7 @@ outputv TSP(ww distances, int POP_SIZE, int gen_thres)
                     new_population.push_back(new_gnome);
                     break;
                 }
-                else {
+                else { //okreslenie mozliwosc genomu do dalszego przejscia
                     float prob = pow(2.7,
                         -1 * ((new_gnome.fitness
                             - population[i].fitness)
@@ -134,8 +134,8 @@ outputv TSP(ww distances, int POP_SIZE, int gen_thres)
         }
 
         w_konca = cooldown(w_konca);
-        population = new_population;
-        dane.push_back(najlepszy);
+        population = new_population; // nadpisanie starej generacji
+        dane.push_back(najlepszy); // wpis do vectora najlepszego wyniku z generacji
         gen++;
     }
     return dane;
@@ -152,7 +152,7 @@ ww dystans(graph mapa) {
             odleglosci[l.first].push_back(odleglosc); // wpisanie odleg³osci do vectora "odleglosci"
         }
     }
-    return odleglosci; // zwracanie vectora "odleg³osci"
+    return odleglosci; // zwracanie vectora "odleglosci"
 }
 // funkcja wypisująca dane do pliku
 void wypisz(outputv dane, std::string wynik) {
